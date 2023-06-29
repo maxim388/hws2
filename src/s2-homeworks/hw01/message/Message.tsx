@@ -1,11 +1,15 @@
 import React from 'react'
 import s from './Message.module.css'
+import { MessageType } from '../HW1'
 
 // нужно создать правильный тип вместо any
-export type MessagePropsType = any
+export type MessagePropsType = {
+    massage:  MessageType,
+}
 
 // нужно отобразить приходящие данные
 const Message = (props: MessagePropsType) => {
+    debugger
     return (
         <div id={'hw1-message-' + props.message.id} className={s.message}>
             <div className={s.imageAndText}>
