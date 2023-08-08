@@ -2,6 +2,7 @@ import React from "react";
 import { AffairType } from "../../HW2";
 import s from "./Affair.module.css";
 import s2 from "../Affairs.module.css";
+import del from "../../../../img/x.svg";
 
 type AffairPropsType = {
   affair: AffairType;
@@ -29,9 +30,9 @@ function Affair(props: AffairPropsType) {
       <button
         id={"hw2-button-delete-" + props.affair._id}
         className={buttonClass}
-        onClick={() => (deleteCallback(props.affair._id))}
+        onClick={() => deleteCallback(props.affair._id)}
       >
-        X
+        <img src={del} alt="" />
       </button>
     </div>
   );

@@ -1,11 +1,17 @@
 .App {
     --header_height: 60px;
+    padding: 70px;
 }
 
 .hw {
-
+    
 }
 
 .hwTitle {
-
+    color: #000;
+    font-family: Montserrat, Times ,'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
