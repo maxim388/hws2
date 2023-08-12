@@ -26,7 +26,6 @@ const Greeting: React.FC<GreetingPropsType> = (
   } // деструктуризация пропсов
 ) => {
   const inputClass = error ? `${s.errorInput} ${s.input}` : `${s.input}`;
-//   debugger;
   return (
     <div id={"hw3-form"} className={s.greetingForm}>
       <div className={s.text}>
