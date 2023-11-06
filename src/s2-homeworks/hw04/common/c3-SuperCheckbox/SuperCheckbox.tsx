@@ -2,6 +2,7 @@ import React, {
   ChangeEvent,
   DetailedHTMLProps,
   InputHTMLAttributes,
+  useState,
 } from "react";
 import s from "./SuperCheckbox.module.css";
 
@@ -26,9 +27,25 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = ({
 
   ...restProps // все остальные пропсы попадут в объект restProps
 }) => {
+  // const [stateForAllCheckboxes, setChecked] = useState<boolean>(startChecked);
+
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-    // задачка на написание онченджа
-    if (onChangeChecked) onChangeChecked(e.currentTarget.checked);
+    //неправильное решение
+    // if (onChange) {
+    //   onChange(e);
+    // } else {
+    //   if (onChangeChecked) {
+    //     onChangeChecked(e.currentTarget.checked);
+    //   }
+    // }
+
+    //правильное решение
+    if (onChange) {
+      onChange(e);
+    }
+    if (onChangeChecked) {
+      onChangeChecked(e.currentTarget.checked);
+    }
   };
 
   const finalInputClassName = s.checkbox + (className ? " " + className : "");
@@ -38,9 +55,10 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = ({
       <input
         id={id}
         type={"checkbox"}
-        onChange={onChangeCallback}
+        onChange={(e) => onChangeCallback(e)}
         className={finalInputClassName}
         {...restProps} // отдаём инпуту остальные пропсы если они есть (checked например там внутри)
+        // checked={stateForAllCheckboxes}
       />
       {children && (
         <span id={id ? id + "-span" : undefined} className={s.spanClassName}>
